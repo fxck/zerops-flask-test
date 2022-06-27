@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import json
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ def index():
         data = json.load(data_file)
         for item in data:
             print(item['id'])
-        return data
+        return jsonify(data)
 
 def create_app():
    return app
