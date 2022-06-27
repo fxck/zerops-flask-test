@@ -11,4 +11,4 @@ api:
       - cd /var/www && python3 -m venv env
       - cd /var/www && source env/bin/activate && pip3 install flask
       - cd /var/www && source env/bin/activate && pip3 install waitress
-    start: cd /var/www && source env/bin/activate && waitress-serve --call app:create_app
+    start: source env/bin/activate && waitress-serve --call app:create_app
