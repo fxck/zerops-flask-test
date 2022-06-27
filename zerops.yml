@@ -2,7 +2,7 @@ api:
   build:
     build:
       - echo 'nothing to see here, move along..'
-    deploy: [ './app.py', './data.json ]
+    deploy: [ './app.py', './data.json' ]
   run:
     prepare:
       - sudo apt update
