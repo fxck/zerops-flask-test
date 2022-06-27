@@ -8,8 +8,7 @@ api:
       - sudo apt update
       - sudo apt -y install python3-pip
       - sudo apt -y install python3-venv
-      - python3 -m venv env
-      - source env/bin/activate
-      - pip3 install --user flask
-      - pip3 install --user waitress
-    start: python3 -m venv env && source env/bin/activate && waitress-serve --call app:create_app
+      - cd /var/www && python3 -m venv env
+      - cd /var/www && source env/bin/activate && pip3 install flask
+      - cd /var/www && source env/bin/activate && pip3 install waitress
+    start: cd /var/www && source env/bin/activate && waitress-serve --call app:create_app
