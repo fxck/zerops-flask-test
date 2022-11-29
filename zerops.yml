@@ -1,14 +1,8 @@
 api:
   build:
-    build:
-      - echo 'nothing to see here, move along..'
     deploy: [ './app.py', './data.json' ]
+    addToRunPrepare: [ 'requirements.txt' ]
   run:
     prepare:
-      - sudo apt update
-      - sudo apt -y install python3-pip
-      - sudo apt -y install python3-venv
-      - cd /var/www && python3 -m venv env
-      - cd /var/www && source env/bin/activate && pip3 install flask
-      - cd /var/www && source env/bin/activate && pip3 install waitress
-    start: source env/bin/activate && waitress-serve --call app:create_app
+      - python3 -m pip install -r requirements.txt
+    start: waitress-serve --call app:create_app
