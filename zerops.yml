@@ -3,6 +3,6 @@ app:
     deploy: [ './app.py' ]
   run:
     prepare:
-      - pip install flask
-      - pip install waitress
+      - pip3 install flask
+      - pip3 install waitress
     start: waitress-serve --call app:create_app
