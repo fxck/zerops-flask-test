@@ -1,14 +1,8 @@
 api:
   build:
-    build:
-      - echo 'nothing to see here, move along..'
     deploy: [ './app.py' ]
   run:
     prepare:
-      - sudo apt update
-      - sudo apt -y install python3-pip
-      - sudo apt -y install python3-venv
-      - cd /var/www && python3 -m venv env
-      - cd /var/www && source env/bin/activate && pip3 install flask
-      - cd /var/www && source env/bin/activate && pip3 install waitress
-    start: source env/bin/activate && waitress-serve --call app:create_app
+      - pip install flask
+      - pip install waitress
+    start: waitress-serve --call app:create_app
