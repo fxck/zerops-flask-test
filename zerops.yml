@@ -1,4 +1,4 @@
-api:
+app:
   build:
     deploy: [ './app.py' ]
   run:
