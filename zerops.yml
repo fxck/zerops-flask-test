@@ -2,7 +2,8 @@ app:
   build:
     deploy: [ './app.py' ]
   run:
-    prepare: - |
+    prepare: 
+      - |
       cd var/www
       python3 -m venv env
       source env/bin/activate
