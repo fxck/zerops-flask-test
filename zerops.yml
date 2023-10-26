@@ -2,7 +2,10 @@ app:
   build:
     deploy: [ './app.py' ]
   run:
-    prepare:
-      - pip3 install flask
-      - pip3 install waitress
-    start: waitress-serve --call app:create_app
+    prepare: - |
+      cd var/www
+      python3 -m venv env
+      source env/bin/activate
+      pip3 install flask
+      pip3 install waitress
+    start: source env/bin/activate && waitress-serve --call app:create_app
